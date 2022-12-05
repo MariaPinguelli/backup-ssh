@@ -1,5 +1,5 @@
 # Imports
-from os import system
+from os import system, getenv
 from random import seed, randint
 from paramiko import SSHClient, AutoAddPolicy 
 from paramiko.auth_handler import AuthenticationException, SSHException
@@ -15,16 +15,16 @@ def main():
     ]
     
     filepaths = [
-        "C:/Users/maria/Downloads/teste"
+        "~/Downloads/teste"
     ]
 
-    local_file_directory = "C:/Users/maria/Downloads/teste"
-    remote_path = "~/uploads"
-    ssh_key_filepath = "~/.ssh/id_rsa.pub"
+    local_file_directory = getenv("local_file_directory")
+    remote_path = getenv("remote_path")
+    ssh_key_filepath = getenv("ssh_key_filepath")
 
-    host = "127.0.0.1"
-    user = "maria"
-    password = ""
+    host = getenv("host")
+    user = getenv("user")
+    password = getenv("password")
     
     # ssh_key = RSAKey.from_private_key_file(ssh_key_filepath)
     # system(f"ssh-copy-id -i {ssh_key_filepath}.pub {user}@{host}>/dev/null 2>&1")
