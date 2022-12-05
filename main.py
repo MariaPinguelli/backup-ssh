@@ -61,11 +61,11 @@ def main():
             remote_path=remote_path,
             recursive=True
         )
-        print("Finished uploading "+ len(filepaths) + " files to " + {remote_path} + " on " + {host})
+        print("Backup finalizado "+ len(filepaths) + " arquivos para " + {remote_path} + " em " + {host})
     except SCPException as e:
-        print("SCPException during bulk upload: " + str(e))
+        print("SCPException: " + str(e))
     except Exception as e:
-        print("Unexpected exception during bulk upload: " + str(e))
+        print("Erro: " + str(e))
     
     if client:
         client.close()
