@@ -26,8 +26,7 @@ def main():
     user = getenv("user")
     password = getenv("password")
     
-    # ssh_key = RSAKey.from_private_key_file(ssh_key_filepath)
-    # system(f"ssh-copy-id -i {ssh_key_filepath}.pub {user}@{host}>/dev/null 2>&1")
+    system(f"ssh-copy-id -i {ssh_key_filepath}.pub {user}@{host}:~/.ssh/authorized_keys")
     
     try:
         client = SSHClient()
